@@ -4,6 +4,7 @@ const profile = {
   birthday: "21/11/2003",
   phone: "(+84) 326526898",
   email: "hieuphong144@gmail.com",
+  emailUrl: "https://mail.google.com/mail/?view=cm&fs=1&to=hieuphong144@gmail.com",
   location: "Việt Nam",
   github: "http://github.com/lahieuphong",
   githubLabel: "lahieuphong.github",
@@ -168,7 +169,13 @@ export default function Home() {
             <div>
               <p>
                 <strong>Email:</strong>{" "}
-                <a href={`mailto:${profile.email}`}>{profile.email}</a>
+                <a
+                  href={profile.emailUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {profile.email}
+                </a>
               </p>
               <p>
                 <strong>GitHub:</strong>{" "}
