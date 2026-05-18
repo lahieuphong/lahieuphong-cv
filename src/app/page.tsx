@@ -271,7 +271,7 @@ export default function Home() {
           {education.map((item) => (
             <div className="education-card" key={item.institution}>
               <p className="education-intro">
-                {item.period}: {item.institution}
+                <strong>{item.period}</strong>: {item.institution}
               </p>
 
               <ul className="education-list">
