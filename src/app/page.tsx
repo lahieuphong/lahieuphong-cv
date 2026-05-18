@@ -23,7 +23,7 @@ const skills = [
   },
   {
     group: "Backend",
-    items: "Node.js, Express.js, C#, REST API, Authentication cơ bản",
+    items: "Node.js, Express.js, C#, REST API, Authentication...",
   },
   {
     group: "Cơ sở dữ liệu",
