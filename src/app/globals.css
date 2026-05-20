@@ -275,6 +275,38 @@ a:hover {
   word-break: break-word;
 }
 
+.redirect-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.redirect-loader {
+  display: grid;
+  justify-items: center;
+  padding: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+  line-height: 1.35;
+}
+
+.redirect-spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid #e5e7eb;
+  border-top-color: var(--rule);
+  border-radius: 999px;
+  animation: redirect-spin 0.8s linear infinite;
+}
+
+@keyframes redirect-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 768px) {
   .cv-wrapper {
     padding: 12px 0;
