@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "La Hiểu Phong",
-  description: "CV cá nhân của La Hiểu Phong",
+  description: "La Hiểu Phong",
 };
 
 export default function RootLayout({
