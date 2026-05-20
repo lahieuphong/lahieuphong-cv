@@ -1,6 +1,9 @@
+const assetBasePath = process.env.GITHUB_ACTIONS === "true" ? "/lahieuphong-cv" : "";
+
 const profile = {
   name: "La Hiểu Phong",
   title: "Full Stack Developer",
+  photoUrl: `${assetBasePath}/profile.png`,
   birthday: "21/11/2003",
   phone: "(+84) 326526898",
   email: "hieuphong144@gmail.com",
@@ -146,8 +149,16 @@ export default function Home() {
     <main className="cv-wrapper">
       <article className="cv-sheet">
         <header className="cv-header">
-          <h1>{profile.name}</h1>
-          <p className="cv-title">{profile.title}</p>
+          <div className="cv-header-spacer" aria-hidden="true" />
+          <div className="cv-header-content">
+            <h1>{profile.name}</h1>
+            <p className="cv-title">{profile.title}</p>
+          </div>
+          <div
+            className="profile-photo"
+            aria-label="Ảnh thẻ"
+            style={{ backgroundImage: `url("${profile.photoUrl}")` }}
+          />
         </header>
 
         <section className="cv-section personal-info-section">

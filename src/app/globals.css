@@ -58,8 +58,17 @@ a:hover {
 }
 
 .cv-header {
+  display: grid;
+  grid-template-columns: 28mm minmax(0, 1fr) 28mm;
+  align-items: end;
+  column-gap: 10mm;
+  min-height: 36mm;
   margin-bottom: 18px;
   text-align: center;
+}
+
+.cv-header-content {
+  align-self: center;
 }
 
 .cv-header h1 {
@@ -77,6 +86,16 @@ a:hover {
   color: var(--muted-ink);
   font-size: 15pt;
   font-weight: 700;
+}
+
+.profile-photo {
+  width: 26mm;
+  aspect-ratio: 3 / 4;
+  justify-self: end;
+  background-color: #f8fafc;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid #d1d5db;
 }
 
 .contact-line {
@@ -317,6 +336,24 @@ a:hover {
     min-height: auto;
     padding: 26px 20px;
     box-shadow: none;
+  }
+
+  .cv-header {
+    grid-template-columns: 1fr 22mm;
+    column-gap: 6mm;
+    min-height: 30mm;
+  }
+
+  .cv-header-spacer {
+    display: none;
+  }
+
+  .cv-header-content {
+    text-align: left;
+  }
+
+  .profile-photo {
+    width: 22mm;
   }
 
   .cv-header h1 {
