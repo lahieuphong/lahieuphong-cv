@@ -206,7 +206,9 @@ export default function Home() {
 
           <div className="current-work-card">
             <p className="current-work-intro">
-              {currentWork.period}: {currentWork.company}
+              <strong>
+                {currentWork.period}: {currentWork.company}
+              </strong>
             </p>
 
             <ul className="cv-list">
@@ -316,7 +318,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {publication.doiUrl}
+                  https://www.worldscientific.com
                 </a>
               </p>
             </div>
