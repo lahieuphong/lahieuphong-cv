@@ -3,8 +3,8 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "La Hiểu Phong",
-  description: "La Hiểu Phong",
+  title: "La Hiểu Phong - 罗晓峰",
+  description: "La Hiểu Phong - 罗晓峰",
 };
 
 export default function RootLayout({
