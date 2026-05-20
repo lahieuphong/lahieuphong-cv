@@ -154,11 +154,10 @@ export default function Home() {
             <h1>{profile.name}</h1>
             <p className="cv-title">{profile.title}</p>
           </div>
-          <div
-            className="profile-photo"
-            aria-label="Ảnh thẻ"
-            style={{ backgroundImage: `url("${profile.photoUrl}")` }}
-          />
+          <div className="profile-photo">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={profile.photoUrl} alt="Ảnh thẻ La Hiểu Phong" />
+          </div>
         </header>
 
         <section className="cv-section personal-info-section">

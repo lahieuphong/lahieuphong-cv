@@ -93,9 +93,15 @@ a:hover {
   aspect-ratio: 3 / 4;
   justify-self: end;
   background-color: #f8fafc;
-  background-position: center;
-  background-size: cover;
   border: 1px solid #d1d5db;
+  overflow: hidden;
+}
+
+.profile-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .contact-line {
@@ -326,6 +332,192 @@ a:hover {
   }
 }
 
+@page {
+  size: A4;
+  margin: 14mm;
+}
+
+@media print {
+  :root {
+    --paper-padding-x: 0;
+    --paper-padding-y: 0;
+  }
+
+  html,
+  body {
+    width: auto;
+    min-height: auto;
+    background: var(--paper);
+  }
+
+  body {
+    font-size: 9.75pt;
+    line-height: 1.26;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  a[href^="http"] {
+    color: #0000ee;
+    text-decoration: underline;
+  }
+
+  .cv-wrapper {
+    min-height: 0;
+    padding: 0;
+    background: var(--paper);
+  }
+
+  .cv-sheet {
+    width: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .cv-header {
+    grid-template-columns: 24mm minmax(0, 1fr) 24mm;
+    column-gap: 8mm;
+    min-height: 28mm;
+    margin-bottom: 8mm;
+    break-inside: avoid;
+  }
+
+  .cv-header h1 {
+    font-size: 18pt;
+    line-height: 1.08;
+  }
+
+  .cv-title {
+    margin: 3px 0 0;
+    font-size: 11.5pt;
+    line-height: 1.18;
+  }
+
+  .profile-photo {
+    width: 22mm;
+  }
+
+  .cv-section {
+    margin-top: 3.2mm;
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .cv-section h2 {
+    margin-bottom: 2mm;
+    padding-bottom: 1mm;
+    font-size: 10.8pt;
+    line-height: 1.15;
+  }
+
+  .personal-info-section {
+    margin-top: 0;
+  }
+
+  .personal-info-grid {
+    column-gap: 14mm;
+    margin-top: 0;
+  }
+
+  .personal-info-grid p,
+  .skills-list p {
+    margin: 1.2mm 0;
+    font-size: 9.85pt;
+    line-height: 1.24;
+  }
+
+  .current-work-card {
+    margin-top: 0;
+  }
+
+  .current-work-intro,
+  .education-intro {
+    font-size: 10pt;
+    line-height: 1.24;
+  }
+
+  .cv-list,
+  .education-list {
+    margin: 1.2mm 0 0 5mm;
+    font-size: 9.65pt;
+    line-height: 1.24;
+  }
+
+  .cv-list li,
+  .education-list li {
+    margin: 0.7mm 0;
+  }
+
+  .experience-card,
+  .education-card,
+  .publication-card {
+    margin-top: 2.6mm;
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .experience-card + .experience-card {
+    margin-top: 3.2mm;
+    padding-top: 2.8mm;
+  }
+
+  .experience-heading {
+    margin-bottom: 1.4mm;
+  }
+
+  .experience-heading h3,
+  .experience-title {
+    font-size: 10pt;
+    line-height: 1.2;
+  }
+
+  .company-project {
+    margin-top: 2mm;
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .cv-list,
+  .cv-list li,
+  .education-list,
+  .education-list li,
+  .technology-line {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .technology-line {
+    margin-top: 1.2mm;
+    font-size: 9.65pt;
+    line-height: 1.24;
+  }
+
+  .publication-section {
+    margin-top: 3.2mm;
+  }
+
+  .publication-card p {
+    font-size: 9.65pt;
+    line-height: 1.28;
+  }
+
+  .publication-type,
+  .publication-year {
+    font-size: 9.85pt;
+    line-height: 1.25;
+  }
+
+  .publication-year {
+    margin-bottom: 1.4mm;
+  }
+
+  .publication-authors {
+    margin-top: 1.8mm;
+  }
+}
+
 @media (max-width: 768px) {
   .cv-wrapper {
     padding: 12px 0;
@@ -395,51 +587,5 @@ a:hover {
   .personal-info-grid a {
     overflow-wrap: anywhere;
     word-break: break-word;
-  }
-}
-
-@page {
-  size: A4;
-  margin: 0;
-}
-
-@media print {
-  :root {
-    --paper-padding-x: 18mm;
-    --paper-padding-y: 16mm;
-  }
-
-  html,
-  body {
-    width: 210mm;
-    background: var(--paper);
-  }
-
-  a {
-    color: var(--ink);
-    text-decoration: none;
-  }
-
-  a[href^="http"] {
-    color: #0000ee;
-    text-decoration: underline;
-  }
-
-  .cv-wrapper {
-    min-height: auto;
-    padding: 0;
-    background: var(--paper);
-  }
-
-  .cv-sheet {
-    width: 210mm;
-    min-height: 297mm;
-    max-width: none;
-    padding: var(--paper-padding-y) var(--paper-padding-x);
-    box-shadow: none;
-  }
-
-  .cv-section {
-    break-inside: avoid;
   }
 }
