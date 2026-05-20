@@ -18,7 +18,7 @@ const profile = {
 const skills = [
   {
     group: "Ngôn ngữ lập trình",
-    items: "JavaScript, TypeScript, HTML5, CSS3, C# cơ bản...",
+    items: "JavaScript, TypeScript, HTML5, CSS3, C#...",
   },
   {
     group: "Frontend",
@@ -34,7 +34,7 @@ const skills = [
   },
   {
     group: "Công cụ phát triển",
-    items: "Git, GitHub, VS Code, Postman, Figma cơ bản",
+    items: "Git, GitHub, VS Code, Postman, Figma cơ bản...",
   },
 ];
 
