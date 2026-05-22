@@ -13,7 +13,7 @@ export function withBasePath(path: string) {
 export const socialLinks: SocialLink[] = [
   {
     label: "Email",
-    href: "mailto:hieuphong144@gmail.com",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=hieuphong144@gmail.com",
     iconSrc: withBasePath("/icons/mail.svg"),
   },
   {
