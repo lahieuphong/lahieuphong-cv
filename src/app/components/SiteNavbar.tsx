@@ -1,10 +1,33 @@
 "use client";
 
 import type { CSSProperties } from "react";
+import { usePathname } from "next/navigation";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { navLinks, socialLinks, withBasePath } from "./navbar/navbarLinks";
 
 const themeChangeEventName = "site-theme-change";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+function normalizePath(path: string) {
+  const pathWithoutBase =
+    basePath && path.startsWith(basePath)
+      ? path.slice(basePath.length) || "/"
+      : path;
+
+  return pathWithoutBase.length > 1
+    ? pathWithoutBase.replace(/\/+$/, "")
+    : pathWithoutBase;
+}
+
+function isActivePath(currentPath: string, targetPath: string) {
+  const normalizedCurrentPath = normalizePath(currentPath);
+  const normalizedTargetPath = normalizePath(targetPath);
+
+  return (
+    normalizedCurrentPath === normalizedTargetPath ||
+    normalizedCurrentPath.startsWith(`${normalizedTargetPath}/`)
+  );
+}
 
 function getThemeSnapshot() {
   if (typeof window === "undefined") {
@@ -38,6 +61,7 @@ function subscribeToThemeChanges(onStoreChange: () => void) {
 }
 
 export default function SiteNavbar() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isDarkMode = useSyncExternalStore(
     subscribeToThemeChanges,
@@ -114,13 +138,22 @@ export default function SiteNavbar() {
           id="site-navbar-menu"
         >
           <ul className="site-navbar-links">
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                <a href={link.href} onClick={() => setIsMenuOpen(false)}>
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = isActivePath(pathname, link.href);
+
+              return (
+                <li key={link.label}>
+                  <a
+                    className={isActive ? "is-active" : undefined}
+                    href={link.href}
+                    aria-current={isActive ? "page" : undefined}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
 
           <button

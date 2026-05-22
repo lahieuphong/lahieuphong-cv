@@ -156,7 +156,11 @@ export default function Home() {
           </div>
           <div className="profile-photo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={profile.photoUrl} alt="Ảnh thẻ La Hiểu Phong" />
+            <img
+              src={profile.photoUrl}
+              alt="Ảnh thẻ La Hiểu Phong"
+              draggable={false}
+            />
           </div>
         </header>
 
