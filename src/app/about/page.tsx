@@ -1,24 +1,29 @@
+import type { CSSProperties } from "react";
 import SiteFooter from "../components/SiteFooter";
 import { withBasePath } from "../components/navbar/navbarLinks";
 
 const education = [
   {
     period: "2021 - 2026",
-    description:
-      "Faculty of Information Technology, Saigon University, Engineer Program in Information Technology.",
+    school: "Trường Đại học Sài Gòn (SGU)",
+    faculty: "Khoa Công nghệ Thông tin",
+    program: "Chương trình Kỹ sư Công nghệ thông tin (CLC)",
   },
 ];
 
 const careers = [
   {
     period: "05/2025 - 08/2025",
+    role: "Frontend Developer Intern",
+    company: "Công ty TNHH HVTT",
     description:
-      "Frontend Developer Intern, Công ty TNHH HVTT. Worked on a DICOM Viewer interface for a healthcare web system.",
+      "Tham gia phát triển giao diện DICOM Viewer cho hệ thống web y tế.",
   },
   {
-    period: "02/2026 - Present",
-    description:
-      "Core Full-stack Developer, Công ty TNHH Thương mại và Dịch vụ Hồng Vân. Builds and maintains full-stack web applications.",
+    period: "02/2026 - Nay",
+    role: "Core Full-stack Developer",
+    company: "Công ty TNHH Thương mại và Dịch vụ Hồng Vân",
+    description: "Phát triển và bảo trì các ứng dụng web full-stack.",
   },
 ];
 
@@ -31,24 +36,32 @@ export default function AboutPage() {
         <div className="about-layout">
           <div className="about-content">
             <section className="about-section">
-              <h2>Education</h2>
+              <h2>Học vấn</h2>
               <div className="about-timeline">
                 {education.map((item) => (
                   <div className="about-row" key={item.period}>
                     <p className="about-period">{item.period}</p>
-                    <p>{item.description}</p>
+                    <div className="about-entry">
+                      <strong>{item.faculty}</strong>
+                      <span>{item.school}</span>
+                      <em>{item.program}</em>
+                    </div>
                   </div>
                 ))}
               </div>
             </section>
 
             <section className="about-section">
-              <h2>Careers</h2>
+              <h2>Kinh nghiệm</h2>
               <div className="about-timeline">
                 {careers.map((item) => (
                   <div className="about-row" key={item.period}>
                     <p className="about-period">{item.period}</p>
-                    <p>{item.description}</p>
+                    <div className="about-entry">
+                      <strong>{item.role}</strong>
+                      <span>{item.company}</span>
+                      <em>{item.description}</em>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -61,25 +74,38 @@ export default function AboutPage() {
             <h2>La Hiểu Phong</h2>
             <p>Full Stack Developer</p>
             <a
+              className="about-profile-link"
               href="https://mail.google.com/mail/?view=cm&fs=1&to=hieuphong144@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              hieuphong144@gmail.com
+              <span
+                className="about-profile-link-icon"
+                style={{
+                  "--about-profile-link-icon": `url(${withBasePath(
+                    "/icons/mail.svg",
+                  )})`,
+                } as CSSProperties}
+                aria-hidden="true"
+              />
+              <span>hieuphong144@gmail.com</span>
             </a>
             <a
+              className="about-profile-link"
               href="https://github.com/lahieuphong"
               target="_blank"
               rel="noopener noreferrer"
             >
-              github.com/lahieuphong
-            </a>
-            <a
-              href="https://www.linkedin.com/in/la-hieu-phong-04359a362/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn profile
+              <span
+                className="about-profile-link-icon"
+                style={{
+                  "--about-profile-link-icon": `url(${withBasePath(
+                    "/icons/github.svg",
+                  )})`,
+                } as CSSProperties}
+                aria-hidden="true"
+              />
+              <span>github.com/lahieuphong</span>
             </a>
           </aside>
         </div>
