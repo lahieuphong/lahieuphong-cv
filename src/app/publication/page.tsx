@@ -1,5 +1,5 @@
+import SiteFooter from "../components/SiteFooter";
 import PublicationAbstract from "./PublicationAbstract";
-import PublicationFooter from "./PublicationFooter";
 
 const publicationYears = [
   {
@@ -50,7 +50,7 @@ export default function PublicationPage() {
         ))}
       </div>
 
-      <PublicationFooter />
+      <SiteFooter />
     </main>
   );
 }
