@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import SiteFooter from "../components/SiteFooter";
 import { withBasePath } from "../components/navbar/navbarLinks";
+
+export const metadata: Metadata = {
+  title: "LHP | about",
+};
 
 const education = [
   {

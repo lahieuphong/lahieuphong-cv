@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "LHP | cv",
+};
+
 const assetBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const profile = {

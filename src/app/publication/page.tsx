@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import SiteFooter from "../components/SiteFooter";
 import { withBasePath } from "../components/navbar/navbarLinks";
 import PublicationAbstract from "./PublicationAbstract";
+
+export const metadata: Metadata = {
+  title: "LHP | publication",
+};
 
 const publicationYears = [
   {
