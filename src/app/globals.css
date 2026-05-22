@@ -391,11 +391,17 @@ a:hover {
 }
 
 .cv-sheet {
+  --ink: #111111;
+  --muted-ink: #3f3f46;
+  --paper: #ffffff;
+  --rule: #1f2937;
+
   width: min(100%, var(--paper-width));
   min-height: var(--paper-min-height);
   margin: 0 auto;
   padding: var(--paper-padding-y) var(--paper-padding-x);
   background: var(--paper);
+  color: var(--ink);
   box-shadow: 0 8px 28px rgba(15, 23, 42, 0.2);
 }
 
