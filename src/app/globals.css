@@ -395,7 +395,7 @@ a:hover {
   margin-right: calc(-1 * var(--publication-page-padding-x));
   margin-left: calc(-1 * var(--publication-page-padding-x));
   padding: 14px 16px;
-  border-top: 1px solid var(--publication-rule);
+  border-top: 2px solid var(--publication-rule);
   background: var(--publication-footer-bg);
   color: var(--publication-footer-text);
   font-family: Arial, Helvetica, sans-serif;
