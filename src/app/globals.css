@@ -910,15 +910,21 @@ a:hover {
 
 @page {
   size: A4;
-  margin: 22mm 14mm 14mm;
+  margin: 10mm 14mm 12mm;
 }
 
-@page :first {
-  margin: 14mm;
+@page:first {
+  margin: 10mm 14mm 12mm;
 }
 
 @media print {
-  :root {
+  :root,
+  .dark-mode {
+    --ink: #111111;
+    --muted-ink: #3f3f46;
+    --paper: #ffffff;
+    --desk: #ffffff;
+    --rule: #1f2937;
     --paper-padding-x: 0;
     --paper-padding-y: 0;
   }
@@ -927,7 +933,8 @@ a:hover {
   body {
     width: auto;
     min-height: auto;
-    background: var(--paper);
+    background: #ffffff !important;
+    color: #111111;
   }
 
   body {
@@ -945,27 +952,46 @@ a:hover {
   .cv-wrapper {
     min-height: 0;
     padding: 0;
-    background: var(--paper);
+    background: #ffffff !important;
   }
 
-  .site-navbar {
-    display: none;
+  .site-navbar,
+  .site-footer {
+    display: none !important;
   }
 
   .cv-sheet {
+    --ink: #111111;
+    --muted-ink: #3f3f46;
+    --paper: #ffffff;
+    --rule: #1f2937;
+
     width: auto;
     min-height: 0;
     margin: 0;
     padding: 0;
+    background: #ffffff !important;
+    color: #111111;
     box-shadow: none;
   }
 
   .cv-header {
     grid-template-columns: 24mm minmax(0, 1fr) 24mm;
+    align-items: start !important;
     column-gap: 8mm;
-    min-height: 28mm;
-    margin-bottom: 8mm;
+    min-height: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 3mm;
     break-inside: avoid;
+  }
+
+  .cv-sheet > .cv-header:first-child {
+    margin-top: 0 !important;
+  }
+
+  .cv-header-content,
+  .profile-photo {
+    align-self: start !important;
   }
 
   .cv-header h1 {
@@ -1102,7 +1128,7 @@ a:hover {
   }
 }
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .publication-page,
   .about-page {
     --publication-page-padding-x: 24px;
@@ -1189,7 +1215,7 @@ a:hover {
   }
 }
 
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .about-shell h1 {
     text-align: center;
   }
@@ -1215,7 +1241,7 @@ a:hover {
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .cv-wrapper {
     padding: calc(var(--navbar-height) + 12px) 0 12px;
   }
@@ -1372,7 +1398,7 @@ a:hover {
   }
 }
 
-@media (max-width: 520px) {
+@media screen and (max-width: 520px) {
   .publication-page {
     --publication-page-padding-x: 14px;
 
@@ -1457,7 +1483,7 @@ a:hover {
   }
 }
 
-@media (max-width: 380px) {
+@media screen and (max-width: 380px) {
   .about-page {
     --publication-page-padding-x: 10px;
   }
@@ -1490,7 +1516,7 @@ a:hover {
   }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
   .personal-info-grid {
     grid-template-columns: 1fr;
     row-gap: 0;
