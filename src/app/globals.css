@@ -10,27 +10,39 @@
   --ink: #111111;
   --muted-ink: #3f3f46;
   --paper: #ffffff;
-  --desk: #d9dde5;
+  --desk: #ffffff;
   --rule: #1f2937;
   --navbar-height: 58px;
-  --navbar-bg: rgba(255, 255, 255, 0.94);
-  --navbar-border: rgba(31, 41, 55, 0.12);
-  --navbar-text: #172033;
-  --navbar-muted: #5b6577;
-  --navbar-hover: #eef2f8;
+  --navbar-bg: #ffffff;
+  --navbar-border: rgba(0, 0, 0, 0.14);
+  --navbar-text: #000000;
+  --navbar-muted: #111111;
+  --navbar-hover: #f2f2f2;
+  --publication-bg: #ffffff;
+  --publication-text: #111111;
+  --publication-muted: #333333;
+  --publication-rule: rgba(0, 0, 0, 0.55);
+  --publication-footer-bg: #ffffff;
+  --publication-footer-text: #111111;
 }
 
 .dark-mode {
-  --ink: #f5f7fb;
-  --muted-ink: #d6dbe7;
-  --paper: #171b24;
-  --desk: #0d1118;
-  --rule: #d9e1ee;
-  --navbar-bg: rgba(15, 19, 27, 0.94);
-  --navbar-border: rgba(217, 225, 238, 0.18);
-  --navbar-text: #f5f7fb;
-  --navbar-muted: #c6cfdd;
-  --navbar-hover: #252d3d;
+  --ink: #f5f5f5;
+  --muted-ink: #d8d8d8;
+  --paper: #000000;
+  --desk: #000000;
+  --rule: #ffffff;
+  --navbar-bg: #000000;
+  --navbar-border: rgba(255, 255, 255, 0.22);
+  --navbar-text: #ffffff;
+  --navbar-muted: #f1f1f1;
+  --navbar-hover: #151515;
+  --publication-bg: #000000;
+  --publication-text: #f5f5f5;
+  --publication-muted: #d8d8d8;
+  --publication-rule: rgba(255, 255, 255, 0.62);
+  --publication-footer-bg: #000000;
+  --publication-footer-text: #f5f5f5;
 }
 
 html {
@@ -217,8 +229,8 @@ a:hover {
   min-height: 100vh;
   padding: calc(var(--navbar-height) + 48px) var(--publication-page-padding-x)
     0;
-  background: #3d3d3d;
-  color: #e7e7e7;
+  background: var(--publication-bg);
+  color: var(--publication-text);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.55;
@@ -234,7 +246,8 @@ a:hover {
   margin: 0 0 34px;
   padding-bottom: 28px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.58);
-  color: #e8e8e8;
+  border-color: var(--publication-rule);
+  color: var(--publication-text);
   font-size: 46px;
   line-height: 1.1;
   font-weight: 300;
@@ -247,7 +260,7 @@ a:hover {
   grid-template-columns: 104px minmax(0, 1fr);
   gap: 26px;
   padding: 0 0 44px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.58);
+  border-bottom: 1px solid var(--publication-rule);
   margin-bottom: 36px;
 }
 
@@ -256,7 +269,7 @@ a:hover {
 }
 
 .publication-year-left {
-  color: #ededed;
+  color: var(--publication-text);
   font-size: 34px;
   line-height: 1;
   font-weight: 300;
@@ -292,7 +305,7 @@ a:hover {
 
 .publication-detail h2 {
   margin: 0 0 4px;
-  color: #f1f1f1;
+  color: var(--publication-text);
   font-size: 19px;
   line-height: 1.36;
   font-weight: 700;
@@ -301,7 +314,7 @@ a:hover {
 
 .publication-detail p {
   margin: 0;
-  color: #dedede;
+  color: var(--publication-muted);
   font-size: 16px;
   line-height: 1.45;
 }
@@ -317,10 +330,10 @@ a:hover {
 .publication-abstract-button {
   margin-top: 12px;
   padding: 6px 17px;
-  border: 1px solid #eeeeee;
+  border: 1px solid var(--publication-text);
   border-radius: 2px;
   background: transparent;
-  color: #f4f4f4;
+  color: var(--publication-text);
   cursor: pointer;
   font: 700 12px/1 Arial, Helvetica, sans-serif;
   transition:
@@ -364,8 +377,8 @@ a:hover {
 .publication-detail .publication-abstract {
   margin: 0;
   padding: 12px 14px;
-  border: 1px dashed rgba(255, 255, 255, 0.72);
-  color: #e4e4e4;
+  border: 1px dashed var(--publication-rule);
+  color: var(--publication-muted);
   font-size: 14px;
   line-height: 1.55;
   text-align: left;
@@ -382,8 +395,9 @@ a:hover {
   margin-right: calc(-1 * var(--publication-page-padding-x));
   margin-left: calc(-1 * var(--publication-page-padding-x));
   padding: 14px 16px;
-  background: #e7e7e7;
-  color: #555555;
+  border-top: 1px solid var(--publication-rule);
+  background: var(--publication-footer-bg);
+  color: var(--publication-footer-text);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.4;
