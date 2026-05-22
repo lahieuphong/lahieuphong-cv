@@ -30,11 +30,11 @@ export const socialLinks: SocialLink[] = [
 
 export const navLinks = [
   {
-    label: "about",
+    label: "giới thiệu",
     href: withBasePath("/about"),
   },
   {
-    label: "publication",
+    label: "công bố",
     href: withBasePath("/publication"),
   },
   {

@@ -23,7 +23,7 @@ export default function PublicationPage() {
   return (
     <main className="publication-page">
       <div className="publication-shell">
-        <h1>publication</h1>
+        <h1>Công bố</h1>
 
         {publicationYears.map((group) => (
           <section className="publication-year-section" key={group.year}>
