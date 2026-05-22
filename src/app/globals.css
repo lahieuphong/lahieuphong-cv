@@ -262,6 +262,7 @@ a:hover {
 .about-content {
   display: grid;
   gap: 34px;
+  min-width: 0;
 }
 
 .about-section h2 {
@@ -285,6 +286,7 @@ a:hover {
   display: grid;
   grid-template-columns: 150px minmax(0, 1fr);
   gap: 24px;
+  min-width: 0;
 }
 
 .about-row p {
@@ -297,9 +299,11 @@ a:hover {
 .about-entry {
   display: grid;
   gap: 4px;
+  min-width: 0;
   color: var(--publication-muted);
   font-size: 16px;
   line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 
 .about-entry strong {
@@ -328,10 +332,11 @@ a:hover {
   display: grid;
   justify-items: start;
   gap: 5px;
+  min-width: 0;
 }
 
 .about-profile img {
-  width: 230px;
+  width: min(230px, 100%);
   aspect-ratio: 1;
   border-radius: 999px;
   object-fit: cover;
@@ -372,6 +377,12 @@ a:hover {
   grid-template-columns: 18px minmax(0, 1fr);
   align-items: center;
   gap: 8px;
+  max-width: 100%;
+}
+
+.about-profile-link span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .about-profile-link-icon {
@@ -1127,6 +1138,28 @@ a:hover {
   }
 }
 
+@media (max-width: 900px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-profile {
+    order: -1;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .about-profile img {
+    width: 190px;
+  }
+
+  .about-profile-link {
+    justify-self: center;
+    text-align: left;
+  }
+}
+
 @media (max-width: 768px) {
   .cv-wrapper {
     padding: calc(var(--navbar-height) + 12px) 0 12px;
@@ -1183,14 +1216,6 @@ a:hover {
   .about-shell h1 {
     margin-bottom: 28px;
     font-size: 38px;
-  }
-
-  .about-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .about-profile {
-    order: -1;
   }
 
   .about-profile img {
@@ -1370,6 +1395,39 @@ a:hover {
     padding: 10px 12px;
     font-size: 13px;
     line-height: 1.5;
+  }
+}
+
+@media (max-width: 380px) {
+  .about-page {
+    --publication-page-padding-x: 10px;
+  }
+
+  .about-shell h1 {
+    font-size: 28px;
+  }
+
+  .about-content {
+    gap: 26px;
+  }
+
+  .about-section h2 {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .about-profile img {
+    width: 132px;
+  }
+
+  .about-profile-link {
+    grid-template-columns: 16px minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .about-profile-link-icon {
+    width: 14px;
+    height: 14px;
   }
 }
 
