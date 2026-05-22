@@ -24,6 +24,7 @@
   --publication-rule: rgba(0, 0, 0, 0.55);
   --publication-footer-bg: #ffffff;
   --publication-footer-text: #111111;
+  --about-section-heading-bg: #fcf4fb;
 }
 
 .dark-mode {
@@ -43,6 +44,7 @@
   --publication-rule: rgba(255, 255, 255, 0.62);
   --publication-footer-bg: #000000;
   --publication-footer-text: #f5f5f5;
+  --about-section-heading-bg: #202a31;
 }
 
 html {
@@ -270,7 +272,7 @@ a:hover {
   margin: 0 0 20px;
   padding: 9px 14px;
   border-radius: 5px;
-  background: #202a31;
+  background: var(--about-section-heading-bg);
   color: #2cafd4;
   font-size: 18px;
   line-height: 1.25;
