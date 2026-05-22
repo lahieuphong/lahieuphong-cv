@@ -13,7 +13,7 @@ export default function PublicationAbstract({
   const abstractId = useId();
 
   return (
-    <>
+    <div className="publication-abstract-control">
       <button
         className="publication-abstract-button"
         type="button"
@@ -33,6 +33,6 @@ export default function PublicationAbstract({
           <p className="publication-abstract">{abstract}</p>
         </div>
       </div>
-    </>
+    </div>
   );
 }

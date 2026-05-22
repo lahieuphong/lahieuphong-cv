@@ -420,8 +420,8 @@ a:hover {
 
 .publication-year-section {
   display: grid;
-  grid-template-columns: 104px minmax(0, 1fr);
-  gap: 26px;
+  grid-template-columns: 1fr;
+  gap: 24px;
   padding: 0 0 44px;
   border-bottom: 1px solid var(--publication-rule);
   margin-bottom: 36px;
@@ -463,14 +463,14 @@ a:hover {
 }
 
 .publication-detail {
-  max-width: 560px;
+  max-width: 720px;
 }
 
 .publication-detail h2 {
-  margin: 0 0 4px;
+  margin: 0 0 8px;
   color: var(--publication-text);
-  font-size: 19px;
-  line-height: 1.36;
+  font-size: 22px;
+  line-height: 1.32;
   font-weight: 700;
   letter-spacing: 0;
 }
@@ -478,19 +478,48 @@ a:hover {
 .publication-detail p {
   margin: 0;
   color: var(--publication-muted);
-  font-size: 16px;
-  line-height: 1.45;
+  font-size: 17px;
+  line-height: 1.42;
 }
 
 .publication-authors {
   overflow-wrap: anywhere;
 }
 
+.publication-authors a {
+  color: #2cafd4;
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.publication-authors a:hover {
+  color: #48c4e5;
+}
+
 .publication-source {
   margin-top: 2px;
 }
 
-.publication-abstract-button {
+.publication-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.publication-abstract-control {
+  display: contents;
+}
+
+.publication-abstract-button,
+.publication-doi-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 74px;
   margin-top: 12px;
   padding: 6px 17px;
   border: 1px solid var(--publication-text);
@@ -499,22 +528,43 @@ a:hover {
   color: var(--publication-text);
   cursor: pointer;
   font: 700 12px/1 Arial, Helvetica, sans-serif;
+  text-decoration: none;
   transition:
     background-color 0.18s ease,
     border-color 0.18s ease,
     color 0.18s ease;
 }
 
-.publication-abstract-button:hover {
+.publication-abstract-button {
+  margin-top: 0;
+  order: 1;
+}
+
+.publication-doi-button {
+  margin-top: 0;
+  color: var(--publication-text);
+  order: 2;
+}
+
+.publication-actions .publication-doi-button {
+  color: var(--publication-text);
+  text-decoration: none;
+}
+
+.publication-abstract-button:hover,
+.publication-actions .publication-doi-button:hover {
   border-color: #2c9fc2;
   background: #2c9fc2;
   color: #ffffff;
+  text-decoration: none;
 }
 
 .publication-abstract-panel {
   display: grid;
+  flex-basis: 100%;
   grid-template-rows: 0fr;
   margin-top: 0;
+  order: 3;
   overflow: hidden;
   opacity: 0;
   transform: translateY(-4px);
@@ -544,7 +594,8 @@ a:hover {
   color: var(--publication-muted);
   font-size: 14px;
   line-height: 1.55;
-  text-align: left;
+  text-align: justify;
+  text-align-last: left;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1101,8 +1152,8 @@ a:hover {
   }
 
   .publication-year-section {
-    grid-template-columns: 80px minmax(0, 1fr);
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 22px;
     padding-bottom: 38px;
     margin-bottom: 32px;
   }
@@ -1121,15 +1172,15 @@ a:hover {
   }
 
   .publication-detail {
-    max-width: 520px;
+    max-width: 640px;
   }
 
   .publication-detail h2 {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .publication-detail p {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .publication-detail .publication-abstract {
