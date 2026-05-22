@@ -75,7 +75,11 @@ export default function AboutPage() {
 
           <aside className="about-profile" aria-label="Thông tin cá nhân">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={withBasePath("/profile.png")} alt="La Hiểu Phong" />
+            <img
+              src={withBasePath("/profile.png")}
+              alt="La Hiểu Phong"
+              draggable={false}
+            />
             <h2>La Hiểu Phong</h2>
             <p>Full Stack Developer</p>
             <a

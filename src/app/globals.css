@@ -372,6 +372,8 @@ a:hover {
   border-radius: 999px;
   object-fit: cover;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.24);
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .about-profile h2 {
