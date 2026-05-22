@@ -7,11 +7,6 @@ const education = [
     description:
       "Faculty of Information Technology, Saigon University, Engineer Program in Information Technology.",
   },
-  {
-    period: "2025",
-    description:
-      "Graduation thesis: Course management system integrated with an AI chatbot using Next.js.",
-  },
 ];
 
 const careers = [
