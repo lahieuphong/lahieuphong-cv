@@ -1,4 +1,4 @@
-const assetBasePath = process.env.GITHUB_ACTIONS === "true" ? "/lahieuphong-cv" : "";
+const assetBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const profile = {
   name: "La Hiểu Phong",
@@ -34,7 +34,7 @@ const skills = [
   },
   {
     group: "Công cụ phát triển",
-    items: "Git, GitHub, VS Code, Postman, Figma cơ bản...",
+    items: "Git, GitHub, VS Code, Postman, Figma",
   },
 ];
 
@@ -299,7 +299,7 @@ export default function Home() {
           ))}
         </section>
 
-        <section className="cv-section publication-section">
+        <section className="cv-section publication-section" id="publications">
           <h2>CÔNG BỐ KHOA HỌC</h2>
 
           {publications.map((publication) => (

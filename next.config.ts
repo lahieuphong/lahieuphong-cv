@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   basePath: isGithubActions ? `/${repoName}` : undefined,
   assetPrefix: isGithubActions ? `/${repoName}/` : undefined,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGithubActions ? `/${repoName}` : "",
+  },
   images: {
     unoptimized: true,
   },
