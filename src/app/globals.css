@@ -1307,10 +1307,12 @@ a:hover {
   .site-navbar-menu {
     display: none;
     width: 100%;
+    flex-direction: column;
     align-items: stretch;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 10px;
-    padding-top: 4px;
+    margin-left: 0;
+    padding-top: 8px;
   }
 
   .site-navbar-menu.is-open {
@@ -1318,11 +1320,26 @@ a:hover {
   }
 
   .site-navbar-links {
-    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  .site-navbar-links li {
+    width: 100%;
   }
 
   .site-navbar-links a {
-    padding: 10px 11px;
+    width: 100%;
+    padding: 13px 14px;
+    border-radius: 6px;
+    font-size: 15px;
+  }
+
+  .site-theme-toggle {
+    align-self: flex-start;
   }
 
   .publication-page {
