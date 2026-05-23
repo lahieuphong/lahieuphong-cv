@@ -93,100 +93,106 @@ export default function SiteNavbar() {
   );
 
   return (
-    <nav
-      className={`site-navbar${isMenuOpen ? " is-menu-open" : ""}`}
-      aria-label="Điều hướng chính"
-    >
-      <div className="site-navbar-inner">
-        <div className="site-navbar-social" aria-label="Liên kết cá nhân">
-          {socialLinks.map((link) => (
-            <a
-              className="site-social-link"
-              href={link.href}
-              key={link.label}
-              target={link.href.startsWith("http") ? "_blank" : undefined}
-              rel={
-                link.href.startsWith("http")
-                  ? "noopener noreferrer"
-                  : undefined
-              }
-              title={link.label}
-              aria-label={link.label}
-            >
-              <span
-                className="site-social-icon"
-                style={
-                  {
-                    "--site-social-icon": `url(${link.iconSrc})`,
-                  } as CSSProperties
+    <>
+      <nav className="site-navbar" aria-label="Điều hướng chính">
+        <div className="site-navbar-inner">
+          <div className="site-navbar-social" aria-label="Liên kết cá nhân">
+            {socialLinks.map((link) => (
+              <a
+                className="site-social-link"
+                href={link.href}
+                key={link.label}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={
+                  link.href.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
                 }
-                aria-hidden="true"
-              />
-            </a>
-          ))}
-        </div>
-
-        <button
-          className="site-navbar-toggle"
-          type="button"
-          aria-controls="site-navbar-menu"
-          aria-expanded={isMenuOpen}
-          aria-label={isMenuOpen ? "Đóng menu điều hướng" : "Mở menu điều hướng"}
-          onClick={() => setIsMenuOpen((currentValue) => !currentValue)}
-        >
-          <span
-            className="site-navbar-toggle-icon"
-            style={
-              {
-                "--site-navbar-toggle-icon": `url(${navbarToggleIconSrc})`,
-              } as CSSProperties
-            }
-            aria-hidden="true"
-          />
-        </button>
-
-        <div
-          className={`site-navbar-menu${isMenuOpen ? " is-open" : ""}`}
-          id="site-navbar-menu"
-        >
-          <ul className="site-navbar-links">
-            {navLinks.map((link) => {
-              const isActive = isActivePath(pathname, link.href);
-
-              return (
-                <li key={link.label}>
-                  <a
-                    className={isActive ? "is-active" : undefined}
-                    href={link.href}
-                    aria-current={isActive ? "page" : undefined}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+                title={link.label}
+                aria-label={link.label}
+              >
+                <span
+                  className="site-social-icon"
+                  style={
+                    {
+                      "--site-social-icon": `url(${link.iconSrc})`,
+                    } as CSSProperties
+                  }
+                  aria-hidden="true"
+                />
+              </a>
+            ))}
+          </div>
 
           <button
-            className="site-theme-toggle"
+            className="site-navbar-toggle"
             type="button"
-            aria-label={themeLabel}
-            title={themeLabel}
-            onClick={toggleTheme}
+            aria-controls="site-navbar-menu"
+            aria-expanded={isMenuOpen}
+            aria-label={
+              isMenuOpen ? "Đóng menu điều hướng" : "Mở menu điều hướng"
+            }
+            onClick={() => setIsMenuOpen((currentValue) => !currentValue)}
           >
             <span
-              className="site-theme-icon"
+              className="site-navbar-toggle-icon"
               style={
                 {
-                  "--site-theme-icon": `url(${themeIconSrc})`,
+                  "--site-navbar-toggle-icon": `url(${navbarToggleIconSrc})`,
                 } as CSSProperties
               }
               aria-hidden="true"
             />
           </button>
+
+          <div
+            className={`site-navbar-menu${isMenuOpen ? " is-open" : ""}`}
+            id="site-navbar-menu"
+          >
+            <ul className="site-navbar-links">
+              {navLinks.map((link) => {
+                const isActive = isActivePath(pathname, link.href);
+
+                return (
+                  <li key={link.label}>
+                    <a
+                      className={isActive ? "is-active" : undefined}
+                      href={link.href}
+                      aria-current={isActive ? "page" : undefined}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <button
+              className="site-theme-toggle"
+              type="button"
+              aria-label={themeLabel}
+              title={themeLabel}
+              onClick={toggleTheme}
+            >
+              <span
+                className="site-theme-icon"
+                style={
+                  {
+                    "--site-theme-icon": `url(${themeIconSrc})`,
+                  } as CSSProperties
+                }
+                aria-hidden="true"
+              />
+            </button>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      <div
+        className={`site-navbar-scrim${isMenuOpen ? " is-visible" : ""}`}
+        aria-hidden="true"
+      />
+    </>
   );
 }

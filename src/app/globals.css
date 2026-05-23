@@ -21,8 +21,8 @@
   --navbar-hairline: rgba(0, 0, 0, 0.52);
   --navbar-toggle-bg: #ffffff;
   --navbar-toggle-text: #111111;
-  --navbar-content-scrim: rgba(255, 255, 255, 0.62);
-  --navbar-content-scrim-fallback: rgba(255, 255, 255, 0.86);
+  --navbar-content-scrim: rgba(255, 255, 255, 0.82);
+  --navbar-content-scrim-fallback: rgba(255, 255, 255, 0.94);
   --navbar-active-bg: transparent;
   --navbar-active-hover: #2c9fc2;
   --navbar-active-border: #111111;
@@ -49,8 +49,8 @@
   --navbar-hairline: rgba(255, 255, 255, 0.72);
   --navbar-toggle-bg: #000000;
   --navbar-toggle-text: #ffffff;
-  --navbar-content-scrim: rgba(0, 0, 0, 0.38);
-  --navbar-content-scrim-fallback: rgba(0, 0, 0, 0.62);
+  --navbar-content-scrim: rgba(0, 0, 0, 0.68);
+  --navbar-content-scrim-fallback: rgba(0, 0, 0, 0.82);
   --navbar-active-bg: transparent;
   --navbar-active-hover: #2c9fc2;
   --navbar-active-border: #f1f1f1;
@@ -109,7 +109,10 @@ a:hover {
   color: var(--navbar-text);
   font-family: Arial, Helvetica, sans-serif;
   backdrop-filter: blur(14px);
-  isolation: isolate;
+}
+
+.site-navbar-scrim {
+  display: none;
 }
 
 .site-navbar a {
@@ -232,15 +235,15 @@ a:hover {
   width: 34px;
   min-width: 34px;
   height: 34px;
-  background: #ffffff;
-  color: #111111;
+  background: var(--navbar-toggle-bg);
+  color: var(--navbar-toggle-text);
   font-size: 12px;
   line-height: 1;
   font-weight: 400;
 }
 
 .site-theme-toggle:hover {
-  background: #ffffff;
+  background: var(--navbar-toggle-bg);
 }
 
 .site-theme-icon {
@@ -1307,10 +1310,10 @@ a:hover {
 }
 
 @media screen and (max-width: 768px) {
-  .site-navbar::after {
-    content: "";
+  .site-navbar-scrim {
+    display: block;
     position: fixed;
-    z-index: -1;
+    z-index: 45;
     inset: 0;
     background: var(--navbar-content-scrim);
     opacity: 0;
@@ -1323,16 +1326,16 @@ a:hover {
       -webkit-backdrop-filter 0.52s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .site-navbar.is-menu-open::after {
+  .site-navbar-scrim.is-visible {
     opacity: 1;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(28px) saturate(0.48);
+    -webkit-backdrop-filter: blur(28px) saturate(0.48);
   }
 
   @supports not (
     (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
   ) {
-    .site-navbar::after {
+    .site-navbar-scrim {
       background: var(--navbar-content-scrim-fallback);
     }
   }
