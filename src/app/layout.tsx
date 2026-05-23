@@ -8,13 +8,29 @@ export const metadata: Metadata = {
   description: "La Hiểu Phong - 罗晓峰",
 };
 
+const themeBootScript = `
+(() => {
+  try {
+    const storedTheme = window.localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const shouldUseDarkMode = storedTheme === "dark" || (!storedTheme && prefersDark);
+
+    document.documentElement.classList.toggle("dark-mode", shouldUseDarkMode);
+  } catch {
+  }
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: ReactNode;
 }>) {
   return (
-    <html lang="vi">
+    <html lang="vi" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
+      </head>
       <body>
         <SiteNavbar />
         {children}

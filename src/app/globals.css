@@ -154,6 +154,12 @@ a:hover {
   font-size: 12px;
   line-height: 1;
   font-weight: 400;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
 }
 
 .site-social-icon {
@@ -170,6 +176,18 @@ a:hover {
 .site-navbar-toggle:hover {
   background: var(--navbar-hover);
   text-decoration: none;
+}
+
+.site-social-link:hover {
+  border-color: var(--navbar-text);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
+  color: var(--navbar-text);
+  transform: translateY(-1px);
+}
+
+.site-social-link:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 
 .site-navbar-links a:hover {
@@ -240,10 +258,25 @@ a:hover {
   font-size: 12px;
   line-height: 1;
   font-weight: 400;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
 }
 
 .site-theme-toggle:hover {
-  background: var(--navbar-toggle-bg);
+  border-color: var(--navbar-text);
+  background: var(--navbar-hover);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
+  color: var(--navbar-text);
+  transform: translateY(-1px);
+}
+
+.site-theme-toggle:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 
 .site-theme-icon {
@@ -252,8 +285,13 @@ a:hover {
   height: 18px;
   margin: 0 auto;
   background: currentColor;
-  mask: var(--site-theme-icon) center / contain no-repeat;
-  -webkit-mask: var(--site-theme-icon) center / contain no-repeat;
+  mask: var(--site-theme-icon-light) center / contain no-repeat;
+  -webkit-mask: var(--site-theme-icon-light) center / contain no-repeat;
+}
+
+.dark-mode .site-theme-icon {
+  mask-image: var(--site-theme-icon-dark);
+  -webkit-mask-image: var(--site-theme-icon-dark);
 }
 
 .site-navbar-toggle {
@@ -267,6 +305,12 @@ a:hover {
   padding: 0;
   background: var(--navbar-toggle-bg);
   color: var(--navbar-toggle-text);
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
 }
 
 .site-navbar-toggle-icon {
@@ -282,7 +326,16 @@ a:hover {
 }
 
 .site-navbar-toggle:hover {
-  background: var(--navbar-toggle-bg);
+  border-color: var(--navbar-text);
+  background: var(--navbar-hover);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
+  color: var(--navbar-text);
+  transform: translateY(-1px);
+}
+
+.site-navbar-toggle:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 
 .publication-page,
@@ -444,12 +497,16 @@ a:hover {
   grid-template-columns: 18px minmax(0, 1fr);
   align-items: center;
   gap: 8px;
+  justify-self: center;
+  width: fit-content;
   max-width: 100%;
+  justify-content: center;
 }
 
 .about-profile-link span:last-child {
   min-width: 0;
   overflow-wrap: anywhere;
+  text-align: center;
 }
 
 .about-profile-link-icon {
@@ -1197,6 +1254,11 @@ a:hover {
 }
 
 @media screen and (max-width: 1024px) {
+  .cv-wrapper {
+    padding-top: var(--navbar-height);
+    padding-bottom: 0;
+  }
+
   .publication-page,
   .about-page {
     --publication-page-padding-x: 24px;
@@ -1305,7 +1367,7 @@ a:hover {
 
   .about-profile-link {
     justify-self: center;
-    text-align: left;
+    text-align: center;
   }
 }
 
@@ -1341,7 +1403,7 @@ a:hover {
   }
 
   .cv-wrapper {
-    padding: calc(var(--navbar-height) + 12px) 0 12px;
+    padding: var(--navbar-height) 0 0;
   }
 
   .site-navbar-inner {

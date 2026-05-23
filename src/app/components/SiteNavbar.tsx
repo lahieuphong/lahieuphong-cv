@@ -81,13 +81,9 @@ export default function SiteNavbar() {
     window.dispatchEvent(new Event(themeChangeEventName));
   }
 
-  const themeLabel =
-    isDarkMode
-      ? "Chuyển sang giao diện sáng"
-      : "Chuyển sang giao diện tối";
-  const themeIconSrc = withBasePath(
-    isDarkMode ? "/icons/sun.svg" : "/icons/moon.svg",
-  );
+  const themeToggleLabel = "Chuyển đổi giao diện sáng/tối";
+  const lightModeThemeIconSrc = withBasePath("/icons/moon.svg");
+  const darkModeThemeIconSrc = withBasePath("/icons/sun.svg");
   const navbarToggleIconSrc = withBasePath(
     isMenuOpen ? "/icons/close.svg" : "/icons/menu.svg",
   );
@@ -171,15 +167,16 @@ export default function SiteNavbar() {
             <button
               className="site-theme-toggle"
               type="button"
-              aria-label={themeLabel}
-              title={themeLabel}
+              aria-label={themeToggleLabel}
+              title={themeToggleLabel}
               onClick={toggleTheme}
             >
               <span
                 className="site-theme-icon"
                 style={
                   {
-                    "--site-theme-icon": `url(${themeIconSrc})`,
+                    "--site-theme-icon-light": `url(${lightModeThemeIconSrc})`,
+                    "--site-theme-icon-dark": `url(${darkModeThemeIconSrc})`,
                   } as CSSProperties
                 }
                 aria-hidden="true"

@@ -9,7 +9,7 @@ const assetBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const profile = {
   name: "La Hiểu Phong",
   title: "Full Stack Developer",
-  photoUrl: `${assetBasePath}/profile.png`,
+  profilePhotoUrl: `${assetBasePath}/cv/profile.png`,
   birthday: "21/11/2003",
   phone: "(+84) 326526898",
   email: "hieuphong144@gmail.com",
@@ -163,7 +163,7 @@ export default function Home() {
           <div className="profile-photo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={profile.photoUrl}
+              src={profile.profilePhotoUrl}
               alt="Ảnh thẻ La Hiểu Phong"
               draggable={false}
             />

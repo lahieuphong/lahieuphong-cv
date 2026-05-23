@@ -76,29 +76,12 @@ export default function AboutPage() {
           <aside className="about-profile" aria-label="Thông tin cá nhân">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={withBasePath("/profile.png")}
-              alt="La Hiểu Phong"
+              src={withBasePath("/about/avatar.png")}
+              alt="Avatar La Hiểu Phong"
               draggable={false}
             />
             <h2>La Hiểu Phong</h2>
             <p>Full Stack Developer</p>
-            <a
-              className="about-profile-link"
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=hieuphong144@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span
-                className="about-profile-link-icon"
-                style={{
-                  "--about-profile-link-icon": `url(${withBasePath(
-                    "/icons/mail.svg",
-                  )})`,
-                } as CSSProperties}
-                aria-hidden="true"
-              />
-              <span>hieuphong144@gmail.com</span>
-            </a>
             <a
               className="about-profile-link"
               href="https://github.com/lahieuphong"
@@ -115,6 +98,23 @@ export default function AboutPage() {
                 aria-hidden="true"
               />
               <span>github.com/lahieuphong</span>
+            </a>
+            <a
+              className="about-profile-link"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=hieuphong144@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span
+                className="about-profile-link-icon"
+                style={{
+                  "--about-profile-link-icon": `url(${withBasePath(
+                    "/icons/mail.svg",
+                  )})`,
+                } as CSSProperties}
+                aria-hidden="true"
+              />
+              <span>hieuphong144@gmail.com</span>
             </a>
           </aside>
         </div>
