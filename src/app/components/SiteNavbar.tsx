@@ -93,7 +93,10 @@ export default function SiteNavbar() {
   );
 
   return (
-    <nav className="site-navbar" aria-label="Điều hướng chính">
+    <nav
+      className={`site-navbar${isMenuOpen ? " is-menu-open" : ""}`}
+      aria-label="Điều hướng chính"
+    >
       <div className="site-navbar-inner">
         <div className="site-navbar-social" aria-label="Liên kết cá nhân">
           {socialLinks.map((link) => (
