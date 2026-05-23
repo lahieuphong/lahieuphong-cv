@@ -222,13 +222,20 @@ a:hover {
 }
 
 .site-theme-toggle {
+  appearance: none;
+  -webkit-appearance: none;
   width: 34px;
   min-width: 34px;
   height: 34px;
-  color: var(--navbar-muted);
+  background: #ffffff;
+  color: #111111;
   font-size: 12px;
   line-height: 1;
   font-weight: 400;
+}
+
+.site-theme-toggle:hover {
+  background: #ffffff;
 }
 
 .site-theme-icon {
