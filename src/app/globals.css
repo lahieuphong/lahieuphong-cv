@@ -19,6 +19,8 @@
   --navbar-muted: #111111;
   --navbar-hover: #f2f2f2;
   --navbar-hairline: rgba(0, 0, 0, 0.52);
+  --navbar-toggle-bg: #ffffff;
+  --navbar-toggle-text: #111111;
   --navbar-active-bg: transparent;
   --navbar-active-hover: #2c9fc2;
   --navbar-active-border: #111111;
@@ -43,6 +45,8 @@
   --navbar-muted: #f1f1f1;
   --navbar-hover: #151515;
   --navbar-hairline: rgba(255, 255, 255, 0.72);
+  --navbar-toggle-bg: #000000;
+  --navbar-toggle-text: #ffffff;
   --navbar-active-bg: transparent;
   --navbar-active-hover: #2c9fc2;
   --navbar-active-border: #f1f1f1;
@@ -246,8 +250,8 @@ a:hover {
   height: 34px;
   margin-left: auto;
   padding: 0;
-  background: #ffffff;
-  color: #111111;
+  background: var(--navbar-toggle-bg);
+  color: var(--navbar-toggle-text);
 }
 
 .site-navbar-toggle-icon {
@@ -263,7 +267,7 @@ a:hover {
 }
 
 .site-navbar-toggle:hover {
-  background: #ffffff;
+  background: var(--navbar-toggle-bg);
 }
 
 .publication-page,
