@@ -257,6 +257,9 @@ a:hover {
   background: currentColor;
   mask: var(--site-navbar-toggle-icon) center / contain no-repeat;
   -webkit-mask: var(--site-navbar-toggle-icon) center / contain no-repeat;
+  transition:
+    opacity 0.22s ease,
+    transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .site-navbar-toggle:hover {
@@ -1294,7 +1297,8 @@ a:hover {
 
   .site-navbar-inner {
     flex-wrap: wrap;
-    gap: 10px;
+    column-gap: 10px;
+    row-gap: 0;
     width: min(100% - 24px, 1040px);
     padding: 10px 0;
   }
@@ -1315,19 +1319,59 @@ a:hover {
   }
 
   .site-navbar-menu {
-    display: none;
+    display: flex;
     width: 100%;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    gap: 12px;
+    gap: 7px;
     margin-left: 0;
-    padding: 12px 0 14px;
-    border-top: 0.5px solid var(--navbar-hairline);
+    margin-top: 0;
+    max-height: 0;
+    padding: 0;
+    border-top: 0.5px solid transparent;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(-10px);
+    transform-origin: top;
+    visibility: hidden;
+    transition:
+      max-height 0.58s cubic-bezier(0.16, 1, 0.3, 1),
+      margin-top 0.58s cubic-bezier(0.16, 1, 0.3, 1),
+      padding 0.58s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.28s ease,
+      clip-path 0.58s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.58s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.28s ease,
+      visibility 0s linear 0.58s;
+    will-change: max-height, opacity, transform, clip-path;
   }
 
   .site-navbar-menu.is-open {
-    display: flex;
+    margin-top: 7px;
+    max-height: 360px;
+    padding: 7px 0 0;
+    border-top-color: var(--navbar-hairline);
+    opacity: 1;
+    pointer-events: auto;
+    clip-path: inset(0);
+    transform: translateY(0);
+    visibility: visible;
+    transition:
+      max-height 0.64s cubic-bezier(0.16, 1, 0.3, 1),
+      margin-top 0.64s cubic-bezier(0.16, 1, 0.3, 1),
+      padding 0.64s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.3s ease,
+      clip-path 0.64s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.64s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.3s ease,
+      visibility 0s linear 0s;
+  }
+
+  .site-navbar-toggle[aria-expanded="true"] .site-navbar-toggle-icon {
+    transform: rotate(90deg) scale(0.94);
   }
 
   .site-navbar-links {
@@ -1340,6 +1384,37 @@ a:hover {
 
   .site-navbar-links li {
     width: 100%;
+  }
+
+  .site-navbar-menu .site-navbar-links li,
+  .site-navbar-menu .site-theme-toggle {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .site-navbar-menu.is-open .site-navbar-links li,
+  .site-navbar-menu.is-open .site-theme-toggle {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .site-navbar-menu.is-open .site-navbar-links li:nth-child(1) {
+    transition-delay: 0.08s;
+  }
+
+  .site-navbar-menu.is-open .site-navbar-links li:nth-child(2) {
+    transition-delay: 0.13s;
+  }
+
+  .site-navbar-menu.is-open .site-navbar-links li:nth-child(3) {
+    transition-delay: 0.18s;
+  }
+
+  .site-navbar-menu.is-open .site-theme-toggle {
+    transition-delay: 0.23s;
   }
 
   .site-navbar-links a {
@@ -1372,7 +1447,7 @@ a:hover {
 
   .site-theme-toggle {
     align-self: flex-end;
-    margin-top: 2px;
+    margin-top: 0;
   }
 
   .publication-page {
