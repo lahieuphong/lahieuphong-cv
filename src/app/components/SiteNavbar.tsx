@@ -88,6 +88,9 @@ export default function SiteNavbar() {
   const themeIconSrc = withBasePath(
     isDarkMode ? "/icons/sun.svg" : "/icons/moon.svg",
   );
+  const navbarToggleIconSrc = withBasePath(
+    isMenuOpen ? "/icons/close.svg" : "/icons/menu.svg",
+  );
 
   return (
     <nav className="site-navbar" aria-label="Điều hướng chính">
@@ -125,12 +128,18 @@ export default function SiteNavbar() {
           type="button"
           aria-controls="site-navbar-menu"
           aria-expanded={isMenuOpen}
-          aria-label="Mở menu điều hướng"
+          aria-label={isMenuOpen ? "Đóng menu điều hướng" : "Mở menu điều hướng"}
           onClick={() => setIsMenuOpen((currentValue) => !currentValue)}
         >
-          <span />
-          <span />
-          <span />
+          <span
+            className="site-navbar-toggle-icon"
+            style={
+              {
+                "--site-navbar-toggle-icon": `url(${navbarToggleIconSrc})`,
+              } as CSSProperties
+            }
+            aria-hidden="true"
+          />
         </button>
 
         <div
