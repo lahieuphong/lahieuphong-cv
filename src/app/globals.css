@@ -1566,10 +1566,13 @@ a:hover {
   .site-navbar-toggle,
   .site-navbar-toggle:hover,
   .site-navbar-toggle:active {
-    border-color: #111111;
+    border: 1px solid #111111;
     background: #ffffff;
+    background-color: #ffffff;
+    background-image: none;
     box-shadow: none;
     color: #111111;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .publication-page {
