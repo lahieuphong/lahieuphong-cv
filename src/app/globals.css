@@ -21,8 +21,8 @@
   --navbar-hairline: rgba(0, 0, 0, 0.52);
   --navbar-toggle-bg: #ffffff;
   --navbar-toggle-text: #111111;
-  --navbar-content-scrim: rgba(255, 255, 255, 0.82);
-  --navbar-content-scrim-fallback: rgba(255, 255, 255, 0.94);
+  --navbar-content-scrim: rgba(255, 255, 255, 0.28);
+  --navbar-content-scrim-fallback: rgba(255, 255, 255, 0.46);
   --navbar-active-bg: transparent;
   --navbar-active-hover: #2c9fc2;
   --navbar-active-border: #111111;
@@ -49,8 +49,8 @@
   --navbar-hairline: rgba(255, 255, 255, 0.72);
   --navbar-toggle-bg: #000000;
   --navbar-toggle-text: #ffffff;
-  --navbar-content-scrim: rgba(0, 0, 0, 0.68);
-  --navbar-content-scrim-fallback: rgba(0, 0, 0, 0.82);
+  --navbar-content-scrim: rgba(0, 0, 0, 0.26);
+  --navbar-content-scrim-fallback: rgba(0, 0, 0, 0.44);
   --navbar-active-bg: transparent;
   --navbar-active-hover: #2c9fc2;
   --navbar-active-border: #f1f1f1;
@@ -1390,8 +1390,8 @@ a:hover {
 
   .site-navbar-scrim.is-visible {
     opacity: 1;
-    backdrop-filter: blur(28px) saturate(0.48);
-    -webkit-backdrop-filter: blur(28px) saturate(0.48);
+    backdrop-filter: blur(6px) saturate(0.9);
+    -webkit-backdrop-filter: blur(6px) saturate(0.9);
   }
 
   @supports not (
@@ -1410,7 +1410,7 @@ a:hover {
     flex-wrap: wrap;
     column-gap: 10px;
     row-gap: 0;
-    width: min(100% - 24px, 1040px);
+    width: min(100% - 32px, 1040px);
     padding: 10px 0;
   }
 
@@ -1558,6 +1558,18 @@ a:hover {
   .site-theme-toggle {
     align-self: flex-end;
     margin-top: 0;
+  }
+
+  .site-theme-toggle,
+  .site-theme-toggle:hover,
+  .site-theme-toggle:active,
+  .site-navbar-toggle,
+  .site-navbar-toggle:hover,
+  .site-navbar-toggle:active {
+    border-color: #111111;
+    background: #ffffff;
+    box-shadow: none;
+    color: #111111;
   }
 
   .publication-page {
