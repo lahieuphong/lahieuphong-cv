@@ -14,7 +14,7 @@
   --rule: #1f2937;
   --navbar-height: 58px;
   --navbar-bg: #ffffff;
-  --navbar-border: rgba(0, 0, 0, 0.14);
+  --navbar-border: rgba(0, 0, 0, 0.9);
   --navbar-text: #000000;
   --navbar-muted: #111111;
   --navbar-hover: #f2f2f2;
@@ -42,7 +42,7 @@
   --desk: #000000;
   --rule: #ffffff;
   --navbar-bg: #000000;
-  --navbar-border: rgba(255, 255, 255, 0.22);
+  --navbar-border: rgba(255, 255, 255, 0.9);
   --navbar-text: #ffffff;
   --navbar-muted: #f1f1f1;
   --navbar-hover: #151515;
@@ -1591,12 +1591,12 @@ a:hover {
   .site-navbar-toggle,
   .site-navbar-toggle:hover,
   .site-navbar-toggle:active {
-    border: 1px solid #111111;
-    background: #ffffff;
-    background-color: #ffffff;
+    border: 1px solid var(--navbar-toggle-text);
+    background: var(--navbar-toggle-bg);
+    background-color: var(--navbar-toggle-bg);
     background-image: none;
     box-shadow: none;
-    color: #111111;
+    color: var(--navbar-toggle-text);
     -webkit-tap-highlight-color: transparent;
   }
 
