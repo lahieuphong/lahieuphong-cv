@@ -63,6 +63,12 @@ function subscribeToThemeChanges(onStoreChange: () => void) {
 export default function SiteNavbar() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const normalizedPathname = normalizePath(pathname);
+  const shouldShowProfileName =
+    normalizedPathname === "/publication" ||
+    normalizedPathname.startsWith("/publication/") ||
+    normalizedPathname === "/cv" ||
+    normalizedPathname.startsWith("/cv/");
   const isDarkMode = useSyncExternalStore(
     subscribeToThemeChanges,
     getThemeSnapshot,
@@ -92,33 +98,44 @@ export default function SiteNavbar() {
     <>
       <nav className="site-navbar" aria-label="Điều hướng chính">
         <div className="site-navbar-inner">
-          <div className="site-navbar-social" aria-label="Liên kết cá nhân">
-            {socialLinks.map((link) => (
-              <a
-                className="site-social-link"
-                href={link.href}
-                key={link.label}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={
-                  link.href.startsWith("http")
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-                title={link.label}
-                aria-label={link.label}
-              >
-                <span
-                  className="site-social-icon"
-                  style={
-                    {
-                      "--site-social-icon": `url(${link.iconSrc})`,
-                    } as CSSProperties
+          {shouldShowProfileName ? (
+            <a
+              className="site-navbar-brand"
+              href={withBasePath("/about")}
+              aria-label="Hieu-Phong La"
+            >
+              <span className="site-navbar-brand-strong">Hieu-Phong</span>
+              <span>La</span>
+            </a>
+          ) : (
+            <div className="site-navbar-social" aria-label="Liên kết cá nhân">
+              {socialLinks.map((link) => (
+                <a
+                  className="site-social-link"
+                  href={link.href}
+                  key={link.label}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    link.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
                   }
-                  aria-hidden="true"
-                />
-              </a>
-            ))}
-          </div>
+                  title={link.label}
+                  aria-label={link.label}
+                >
+                  <span
+                    className="site-social-icon"
+                    style={
+                      {
+                        "--site-social-icon": `url(${link.iconSrc})`,
+                      } as CSSProperties
+                    }
+                    aria-hidden="true"
+                  />
+                </a>
+              ))}
+            </div>
+          )}
 
           <button
             className="site-navbar-toggle"

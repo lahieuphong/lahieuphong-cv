@@ -142,6 +142,25 @@ a:hover {
   gap: 8px;
 }
 
+.site-navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 34px;
+  max-width: 100%;
+  color: var(--navbar-text);
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.site-navbar-brand-strong {
+  font-weight: 700;
+}
+
 .site-social-link {
   display: inline-grid;
   width: 34px;
@@ -1414,8 +1433,14 @@ a:hover {
     padding: 10px 0;
   }
 
-  .site-navbar-social {
+  .site-navbar-social,
+  .site-navbar-brand {
     max-width: calc(100% - 54px);
+  }
+
+  .site-navbar-brand {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .site-social-link,
